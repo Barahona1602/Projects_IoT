@@ -49,5 +49,29 @@ class databaseManager:
         collection = database[self.COLLECTION_NAME]     # Colleccion seleccionada
         collection.insert_one(new_element)              # Insertando un valor nuevo a la colleccion
         return True
+    
+    def getLastValue(self):
+        if self.client is None:
+            print("the client doesn't exists")
+            return None
+        database = self.client[self.DB_NAME]
+        collection = database[self.COLLECTION_NAME]
+        mediciones = collection.find({},{'_id' : 0})
+        ultima_medicion = list(mediciones)
+        if ultima_medicion is None:
+            return None
+        return ultima_medicion[len(ultima_medicion)-1]
+
+
+    def getCollection(self):
+        if self.client is None:
+            print("the client doesn't exists")
+            return None
+        database = self.client[self.DB_NAME]
+        # print(type(database))
+        collection = database[self.COLLECTION_NAME]
+        # print(type(collection))
+        return collection.find({}, {'_id' : 0})
+
 
 db = databaseManager(URL, DB_NAME, COLLECTION_NAME)
