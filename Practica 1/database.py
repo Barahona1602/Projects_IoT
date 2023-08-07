@@ -1,4 +1,5 @@
 import pymongo
+from datetime import datetime
 from typing import List
 
 '''
@@ -40,10 +41,11 @@ class databaseManager:
 
         # Creando un nuevo elemento de la base de datos
         new_element = {
-            "Temperature": data[0],
-            "Lumen": data[1],
-            "Humidity": data[2],
-            "CO2": data[3]
+            "Temperature": float(data[0]),
+            "Lumen": float(data[1]),
+            "Humidity": float(data[2]),
+            "CO2": float(data[3]),
+            "fecha": str(datetime.now().date())
         } 
         database = self.client[self.DB_NAME]            # Base de datos seleccionada
         collection = database[self.COLLECTION_NAME]     # Colleccion seleccionada

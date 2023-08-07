@@ -22,7 +22,7 @@ def ReadData(serial: serial) -> None:
     while True:
         time.sleep(1)
         '''Guardamos los datos en la base de datos y luego vaciamos el arreglo'''
-        if len(data) == 4:
+        if len(data) >= 4:
             db.Connect()
             db.insertValue(data)
             db.Close()
@@ -32,6 +32,6 @@ def ReadData(serial: serial) -> None:
             continue
         
         received: str = serial.read(serial.in_waiting).decode('utf-8')
-        data.append(float(received))
+        data = received.split('\n')
+        # Funcion para debuggear lo que entra por el puerto serial
         print("Received: ", received)
-        # incrementamos el contador

@@ -2,18 +2,32 @@
 var temperatura = 0;
 var humedad = 0;
 var luz = 0;
+var co2 = 0;
 
 function setup() {
   createCanvas(400, 400);
-  loadJSON('http://127.0.0.1:5000/all', gotData);
-  loadJSON('http://127.0.0.1:5000/last', gotData);
 }
 
 function gotData(data) {
-  console.log(data);
+  if (data.Temperature) {
+    temperatura = data.Temperature
+  }
+  if (data.Lumen) {
+    luz = data.Lumen
+  }
+  if (data.Humidity) {
+    humedad = data.Humidity
+  }
+  if (data.CO2) {
+    co2 = data.CO2
+  }
+  console.log(temperatura);
 }
 
 function draw() {
+  // loadJSON('http://127.0.0.1:5000/all', gotData);
+  loadJSON('http://127.0.0.1:5000/last', gotData);
+
   //background white with a tone of gray
   background(220); 
   // Draw a thermometer in celsius

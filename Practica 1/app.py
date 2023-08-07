@@ -28,7 +28,6 @@ def last():
     medicion = db.getLastValue()
     if medicion is None:
        return jsonify({'error': 'no se pudo obtener los datos'})
-    db.Close()
     # print(dict_mediciones)
     return jsonify(medicion) 
 
