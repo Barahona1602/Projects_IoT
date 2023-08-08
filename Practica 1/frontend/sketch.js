@@ -5,7 +5,9 @@ var luz = 0;
 var co2 = 0;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(1080, 920);
+  loadJSON('http://127.0.0.1:5000/last', gotData);
+  drawDashboard();
 }
 
 function gotData(data) {
@@ -25,9 +27,18 @@ function gotData(data) {
 }
 
 function draw() {
-  // loadJSON('http://127.0.0.1:5000/all', gotData);
-  loadJSON('http://127.0.0.1:5000/last', gotData);
+// Execute all code below each 5 seconds with millis()
+  let currentMillis = millis();
+  if(currentMillis > 5000){
+    // loadJSON('http://127.0.0.1:5000/all', gotData);
+    loadJSON('http://127.0.0.1:5000/last', gotData);
+    drawDashboard();    
+    currentMillis = 0;
+  }  
+}
 
+function drawDashboard(){
+// --------------- Thermometer ----------------
   //background white with a tone of gray
   background(220); 
   // Draw a thermometer in celsius
@@ -51,11 +62,5 @@ function draw() {
   textSize(8);
   for (var i = 100; i <= 300; i = i + 20) {
     text((300 - i)/4, 120, i);
-  }
-
-
-  
-  
-  
-
+  }  
 }
