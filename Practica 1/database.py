@@ -49,7 +49,7 @@ class databaseManager:
             "Lumen": float(data[1]),
             "Humidity": float(data[2]),
             "CO2": float(data[3]),
-            "fecha": str(datetime.now().date()),
+            "Fecha": str(datetime.now().date()),
             "Hora": str(datetime.now().hour),
             "Minutos": str(datetime.now().minute),
             "Segundos": str(datetime.now().second)
