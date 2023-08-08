@@ -7,8 +7,12 @@ Data Schema {
     Temperature:    number,
     Lumen:          number,
     Humidity:       number,
-    CO2:            number
-}
+    CO2:            number,
+    Fecha:          string,
+    Hora:           string,
+    Minutos:        string,
+    Segundos:       string
+,}
 '''
 
 # CONST SECTION
@@ -45,7 +49,10 @@ class databaseManager:
             "Lumen": float(data[1]),
             "Humidity": float(data[2]),
             "CO2": float(data[3]),
-            "fecha": str(datetime.now().date())
+            "fecha": str(datetime.now().date()),
+            "Hora": str(datetime.now().hour),
+            "Minutos": str(datetime.now().minute),
+            "Segundos": str(datetime.now().second)
         } 
         database = self.client[self.DB_NAME]            # Base de datos seleccionada
         collection = database[self.COLLECTION_NAME]     # Colleccion seleccionada

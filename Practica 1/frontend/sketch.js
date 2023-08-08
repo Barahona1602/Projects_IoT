@@ -24,6 +24,13 @@ function gotData(data) {
     co2 = data.CO2
   }
   console.log(temperatura);
+  console.log(luz);
+  console.log(humedad);
+  console.log(co2);
+  console.log(data.Fecha);
+  console.log(data.Hora);
+  console.log(data.Minutos);
+  console.log(data.Segundos);
 }
 
 function draw() {
