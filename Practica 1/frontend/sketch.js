@@ -5,7 +5,8 @@ var luz = 0;
 var co2 = 0;
 
 function setup() {
-  createCanvas(1080, 920);
+  // Create full screen canvas
+  createCanvas(1680, 1050);
   loadJSON('http://127.0.0.1:5000/last', gotData);
   drawDashboard();
 }
@@ -46,28 +47,126 @@ function draw() {
 
 function drawDashboard(){
 // --------------- Thermometer ----------------
+  // grosor de la linea
+  strokeWeight(4);
   //background white with a tone of gray
   background(220); 
   // Draw a thermometer in celsius
   fill(255, 0, 0); // Red
-  rect(150, 100, 50, 200);
-  fill(200); // Blue  
-  rect(150, 100, 50, 200 - (temperatura*4));
+  rect(250, 200, 110, 400);
+  fill(200); // Blue
+  rect(250, 200, 110, 400 - temperatura * 4);
   // Set title Thermometer
   fill(0);
-  textSize(20);
-  text("Termómetro", 120, 50);
+  textSize(50);
+  text("Termómetro", 150, 100);
   // Set celcius Degress
   fill(0);
-  textSize(20);
-  text(temperatura + "°C", 160, 330); 
-  // Now draw at the left, small horizontal lines of the thermometer
-  for (var i = 100; i <= 300; i = i + 20) {
-    line(150, i, 160, i);
+  textSize(40);
+  text(temperatura + "ºC", 260, 670);
+  // draw small horizontal lines at the left of the thermometer each 10ºC 0-100
+  for (var i = 0; i < 11; i++) {
+    line(250, 600 - i * 40, 260, 600 - i * 40);
   }
-  // Put the amount of celcius degrees
-  textSize(8);
-  for (var i = 100; i <= 300; i = i + 20) {
-    text((300 - i)/4, 120, i);
+  // draw thinner small horizontal lines at the left of the thermometer each 5ºC 0-100
+  for (var i = 0; i < 21; i++) {
+    line(250, 600 - i * 20, 255, 600 - i * 20);
+  }
+  
+  // draw small text with amounts of text at the left of the thermometer each 10ºC 0-100
+  textSize(15);
+  for (var i = 0; i < 11; i++) {
+    text(i * 10, 200, 605 - i * 40);
+  }
+
+
+// --------------- CO2 ----------------
+
+// Draw a Co2 meter in ppm with grey meter with range 100-400 ppm's
+  // dark gray meter
+  fill(100);
+  rect(500, 200, 110, 400);
+  // light gray meter
+  fill(200);
+  rect(500, 200, 110, 400 - co2);
+  // Set title Co2
+  fill(0);
+  textSize(50);
+  text("CO2", 500, 100);
+  // Set ppm's
+  fill(0);
+  textSize(40);
+  text(co2 + "ppm", 500, 670);
+  // draw small horizontal lines at the left of the meter each 100ppm 0-400
+  for (var i = 0; i < 5; i++) {
+    line(500, 600 - i * 100, 510, 600 - i * 100);
+  }
+  // draw thinner small horizontal lines at the left of the meter each 25ppm 0-400
+  for (var i = 0; i < 17; i++) {
+    line(500, 600 - i * 25, 505, 600 - i * 25);
+  }
+  // draw small text with amounts of text at the left of the meter each 100ppm 0-400
+  textSize(15);
+  for (var i = 0; i < 5; i++) {
+    text(i * 100, 450, 605 - i * 100);
+  }
+
+  // --------------- Humidity, drop form ----------------
+
+  // Draw a humidity meter in % with light blue meter with range 0-100% and drop form
+  
+  // light blue meter
+  fill(0, 0, 255);
+  rect(750, 200, 110, 400);
+  // dark blue meter
+  fill(200);
+  rect(750, 200, 110, 400 - humedad * 4);
+  // Set title Humidity
+  fill(0);
+  textSize(50);
+  text("Humedad", 700, 100);
+  // Set %
+  fill(0);
+  textSize(40);
+  text(humedad + "%", 750, 670);
+  // draw small horizontal lines at the left of the meter each 10% 0-100
+  for (var i = 0; i < 11; i++) {
+    line(750, 600 - i * 40, 760, 600 - i * 40);
+  }
+  // draw thinner small horizontal lines at the left of the meter each 5% 0-100
+  for (var i = 0; i < 21; i++) {
+    line(750, 600 - i * 20, 755, 600 - i * 20);
+  }
+  // draw small text with amounts of text at the left of the meter each 10% 0-100
+  textSize(15);
+  for (var i = 0; i < 11; i++) {
+    text(i * 10, 700, 605 - i * 40);
+  }
+
+
+// --------------- Light ----------------
+// circle form with range 0-100 lumen
+  // grey circle
+  fill(200);
+  circle(1150, 400, 400);
+  // light yellow circle
+  fill(255, 255, 0);
+  circle(1150, 400, luz * 4);
+  // Set title Light
+  fill(0);
+  textSize(50);
+  text("Luz", 1100, 100);
+  // Set lumen
+  fill(0);
+  textSize(40);
+  text(luz + " lm", 1100, 670);
+  // draw small lines to show how much light is in the room 
+  for (var i = 0; i < 11; i++) {
+    line(1150 + i * 20, 400, 1150 + i * 20, 410);
+  }
+  // draw small text with amounts of text at the bottom of the circle each 10lm 0-100
+  textSize(10);
+  for (var i = 0; i < 10; i++) {
+    text(i * 10, 1145 + i * 20, 425);
   }  
 }
