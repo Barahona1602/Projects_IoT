@@ -5,6 +5,7 @@ pip install pyserial
 pip install pymongo
 pip install Flask
 pip install Flask-CORS
+pip install matplotlib
 ```
 Luego debemos establecer una conexion con mongodb y extraer el enlace de conexion, despues debemos crear una base de datos llamada `ACE2` y que esta contenga una colleccion llamada `Medicion`.
 
