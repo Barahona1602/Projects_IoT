@@ -19,7 +19,7 @@ function draw() {
 // Execute all code below each 5 seconds with millis()
     let currentMillis = millis();
     drawImages();
-    if(currentMillis > 4000){
+    if(currentMillis > 15000){
     // show 4 graphs of png images
     loadJSON('http://localhost:5000/graph', console.log(gotData));
     drawImages();

@@ -38,13 +38,12 @@ function gotData(data) {
 function draw() {
 // Execute all code below each 5 seconds with millis()
   let currentMillis = millis();
-  if(currentMillis > 5000){
+  if(currentMillis > 15000){
     // loadJSON('http://127.0.0.1:5000/all', gotData);
     loadJSON('http://127.0.0.1:5000/last', gotData);
     drawDashboard();    
     currentMillis = 0;
   }
-  
 }
 
 function drawDashboard(){
