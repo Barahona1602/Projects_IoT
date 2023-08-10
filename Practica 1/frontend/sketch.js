@@ -7,6 +7,7 @@ var co2 = 0;
 function setup() {
   // Create full screen canvas
   createCanvas(1680, 1050);
+  drawButton();
   loadJSON('http://127.0.0.1:5000/last', gotData);
   drawDashboard();
 }
@@ -42,7 +43,8 @@ function draw() {
     loadJSON('http://127.0.0.1:5000/last', gotData);
     drawDashboard();    
     currentMillis = 0;
-  }  
+  }
+  
 }
 
 function drawDashboard(){
@@ -170,3 +172,23 @@ function drawDashboard(){
     text(i * 10, 1145 + i * 20, 425);
   }  
 }
+
+// button to other page
+function drawButton() {
+  // create button
+  var button = createButton('MOSTRAR HISTORIAL');
+  button.style('font-size', '30px');
+  button.style('background-color', 'white');
+  button.style('border-radius', '10px');
+  button.style('border-color', 'black');
+  button.style('border-width', '2px');
+  button.style('padding', '10px');
+  button.style('margin', '10px');
+  button.position(600, 850);
+  button.mousePressed(goToGraphs);
+}
+
+function goToGraphs() {
+  window.location.href = "index2.html";
+}
+
