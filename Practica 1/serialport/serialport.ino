@@ -1,10 +1,10 @@
 #define SWITCH 8
 
 // Manera en la que se envian los datos
-  int Temperature = 5;
-  int Lumen = 4;
-  float Humidity = 3.5;
-  float CO2 = 2.4;
+  int Temperature = 12;
+  int Lumen = 20;
+  float Humidity = 30;
+  float CO2 = 40;
 
 void setup() {
   /*
