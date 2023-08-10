@@ -3,6 +3,7 @@ var temperatura = 0;
 var humedad = 0;
 var luz = 0;
 var co2 = 0;
+let col = 0, temp = 0, hum = 0 , light = 0, co = 0;
 
 function setup() {
   // Create full screen canvas
@@ -38,13 +39,19 @@ function gotData(data) {
 function draw() {
 // Execute all code below each 5 seconds with millis()
   let currentMillis = millis();
+  let currentMillis2 = millis();
   if(currentMillis > 5000){
-    // loadJSON('http://127.0.0.1:5000/all', gotData);
+    temperatura = 20;
+    console.log(temperatura);
     loadJSON('http://127.0.0.1:5000/last', gotData);
-    drawDashboard();    
     currentMillis = 0;
   }
-  
+  if (currentMillis2 > 2000){
+    updateValues();
+    currentMillis2 = 0;
+    console.log(temp);
+  }
+  drawDashboard();
 }
 
 function drawDashboard(){
@@ -54,10 +61,30 @@ function drawDashboard(){
   //background white with a tone of gray
   background(220); 
   // Draw a thermometer in celsius
-  fill(255, 0, 0); // Red
+  // Varia depende on the temperature
+  // Progresivamente variar
+  if (temp < 10 ){
+    //light blue
+    col = color(0, 255, 255);
+  } else if (temp < 15) {
+    col = color(0, 0, 255); // Blue
+  } else if (temp < 20) {
+    col = color(255, 255, 200);    
+  } else if (temp < 25) {
+    col = color(255, 255, 0);
+  }else if (temp < 30) { 
+    col = color(255, 165, 0);
+  } else if (temp < 35) {
+    col = color(255, 127, 0);
+  } else {
+    col = color(255, 0, 0);
+  }
+  fill(col);  
   rect(250, 200, 110, 400);
-  fill(200); // Blue
-  rect(250, 200, 110, 400 - temperatura * 4);
+
+  fill(200); // Gray
+  rect(250, 200, 110, 400 - temp * 4);
+
   // Set title Thermometer
   fill(0);
   textSize(50);
@@ -65,7 +92,7 @@ function drawDashboard(){
   // Set celcius Degress
   fill(0);
   textSize(40);
-  text(temperatura + "ºC", 260, 670);
+  text(temp + "ºC", 260, 670);
   // draw small horizontal lines at the left of the thermometer each 10ºC 0-100
   for (var i = 0; i < 11; i++) {
     line(250, 600 - i * 40, 260, 600 - i * 40);
@@ -191,4 +218,38 @@ function drawButton() {
 function goToGraphs() {
   window.location.href = "index2.html";
 }
+
+function updateValues(){
+  if (temperatura != temp) {
+    if (temp < temperatura){
+      temp++;
+    } else {
+      temp--;
+    }
+  }
+  
+  if(humedad != hum){
+    if (hum < humedad){
+      hum++;
+    } else {
+      hum--;
+    }
+  }
+  if(luz != light){
+    if (light < luz){
+      light++;
+    } else {
+      light--;
+    }
+  }
+  if(co2 != co){
+    if (co < co2){
+      co++;
+    } else {
+      co--;
+    }
+  }
+  return
+}
+
 
