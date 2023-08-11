@@ -18,16 +18,16 @@ function setup() {
 
 function gotData(data) {
   if (data.Temperature) {
-    temperatura = data.Temperature
+    temperatura = Math.round(data.Temperature)
   }
   if (data.Lumen) {
-    luz = data.Lumen
+    luz = Math.round(data.Lumen)
   }
   if (data.Humidity) {
-    humedad = data.Humidity
+    humedad = Math.round(data.Humidity)
   }
   if (data.CO2) {
-    co2 = data.CO2
+    co2 = Math.round(data.CO2)
   }
   console.log(temperatura);
   console.log(luz);
