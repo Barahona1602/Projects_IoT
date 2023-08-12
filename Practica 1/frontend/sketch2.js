@@ -21,10 +21,10 @@ function draw() {
     drawImages();
     if(currentMillis > 15000){
     // show 4 graphs of png images
-    loadJSON('http://localhost:5000/graph', console.log(gotData));
-    drawImages();
+    loadJSON('http://localhost:5000/last', console.log(gotData));
     currentMillis = 0;
     preload();
+    drawImages();
     }
 }
 
