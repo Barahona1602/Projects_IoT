@@ -3,7 +3,7 @@ import serial
 import time
 
 '''Configuracion del puerto serial'''
-PORT = 'COM5'
+PORT = 'COM4'
 BAUD_RATE = 9600
 
 def Execute() -> None:
