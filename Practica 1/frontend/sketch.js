@@ -1,6 +1,6 @@
 // Declarar variables globales (temperatura, humedad, luz)
-var temperatura = 50, humedad = 50, luz = 60, co2 = 220;
-let temp = 0, hum = 0 , light = 30, co = 180, lastTime1 = 0, lastTime2 = 0, lastTime3=0;
+var temperatura = 50, humedad = 50, luz = 300, co2 = 220;
+let temp = 0, hum = 0 , light = 240, co = 180, lastTime1 = 0, lastTime2 = 0, lastTime3=0;
 let bubbles = []
 let live;
 
@@ -210,14 +210,14 @@ function drawDashboard(){
   // light yellow circle
   strokeWeight(1);
   fill(255, 255, 0);
-  circle(1150, 400, light * 4);  
+  circle(1150, 400, light/2);  
   // Dibujar ondas de luz con líneas
   noFill();
   for (let i = 0; i < 360; i += 10) {
-    let x1 = cos(radians(i)) * (light*2.2 + waveAmplitude * sin(angle + i * waveFrequency));
-    let y1 = sin(radians(i)) * (light*2.1 + waveAmplitude * sin(angle + i * waveFrequency));
-    let x2 = cos(radians(i + 10)) * (light*2.4 + waveAmplitude * sin(angle + (i + 10) * waveFrequency));
-    let y2 = sin(radians(i + 10)) * (light*2.5 + waveAmplitude * sin(angle + (i + 10) * waveFrequency));
+    let x1 = cos(radians(i)) * (light*2.2/8 + waveAmplitude * sin(angle + i * waveFrequency));
+    let y1 = sin(radians(i)) * (light*2.1/8 + waveAmplitude * sin(angle + i * waveFrequency));
+    let x2 = cos(radians(i + 10)) * (light*2.4/8 + waveAmplitude * sin(angle + (i + 10) * waveFrequency));
+    let y2 = sin(radians(i + 10)) * (light*2.5/8 + waveAmplitude * sin(angle + (i + 10) * waveFrequency));
     line(1150 + x1, 400 + y1, 1150 + x2, 400 + y2);
   }
   // Actualizar el ángulo para la animación de ondas
@@ -237,11 +237,11 @@ function drawDashboard(){
   for (var i = 0; i < 11; i++) {
     line(1150 + i * 20, 400, 1150 + i * 20, 410);
   }
-  // draw small text with amounts of text at the bottom of the circle each 10lm 0-100
-  textSize(12);
-  for (var i = 0; i < 10; i++) {
-    text(i * 10, 1145 + i * 20, 425);
-  }  
+  // draw small text with amounts of text at the bottom of the circle each 80lm 0-800
+  textSize(10);
+  for (var i = 0; i < 11; i++) {
+    text(i * 80, 1145 + i * 20, 420);
+  }
 }
 
 // button to other page

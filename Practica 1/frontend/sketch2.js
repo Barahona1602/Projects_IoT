@@ -22,9 +22,9 @@ function draw() {
     if(currentMillis > 15000){
     // show 4 graphs of png images
     loadJSON('http://localhost:5000/graph', console.log(gotData));
-    drawImages();
     currentMillis = 0;
     preload();
+    drawImages();
     }
 }
 
