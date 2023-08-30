@@ -8,12 +8,15 @@ Grupo 8
 | 202110773   | Joshua David Osorio Tally  |
 | 202100154   | Sergio André Lima Corado  |
 | 201807253  | Brian Josué Erazo Sagastume  |
+___
 
 ## Introducción
 
 El presente proyecto se basa en el **Control Climático en Alcobas Inteligentes a través del Análisis Meteorológico IoT**. Presentamos una solución diseñando un dispositivo capaz de medir y registrar regularmente diversas variables meteorológicas, y definiendo distintas rutinas automatizadas dependiendo el estado de dichas variables.
  
 Además afrontamos el reto de implementar una plataforma de gestión centralizada que permite la integración de datos meteorológicos y el control de dispositivos en el cuarto, ofreciendo una experiencia de usuario intuitiva y accesible.
+
+En esta ocasión de desarrolló una aplicación móvil y también se implemento una conexión inalámbrica con la ayuda del ESP8266.
 ___
 
 ## Bocetos del prototipo
