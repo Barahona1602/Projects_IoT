@@ -148,6 +148,8 @@ ___
 
 ## Smart Connected design Framework
 
+![Framework](img/frameworkIOT.png)
+
 
 ___
 
