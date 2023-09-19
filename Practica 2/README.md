@@ -151,8 +151,10 @@ ___
 
 ___
 
-## Diagramas
+## Diagrama de conexión
 
+
+![Alt text](img/Diagrama.jpeg)
 
 ___
 
