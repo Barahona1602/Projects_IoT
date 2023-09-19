@@ -94,8 +94,56 @@ ___
 
 
 ## Muckups sobre la aplicación móvil y Web
+### Web Application
+![Web Application](./img/webApplication.png)
+El encabezado de la página incluye el nombre del sistema de monitoreo ambiental.
+En la parte izquierda de la representación, se encuentra una gráfica en forma de termómetro que muestra la temperatura actual.
+Justo a la derecha de la gráfica de temperatura, hay un círculo que cambia de gris (apagado) a verde (encendido) para indicar la presencia de un humano en la habitación.
+En la parte derecha de la representación, se muestra la calidad del aire representada como su unidad en partes por millón (ppm), por ejemplo, "220 ppm".
+A un lado de la representación, hay otro círculo similar que cambia de gris (apagado) a verde (encendido) para indicar el estado de la luz en la habitación.
+### Main Menu (Mobile App)
+![Main Menu (Mobile App)](./img/mobileApp1.png)
+El menú principal de la aplicacion mobil cuenta con unicamente dos botones:
 
+Seguridad:
+Este botón está etiquetado como "Seguridad" y se distingue por un ícono relevante como un candado.
+Al hacer clic en este botón, el usuario será redirigido a la sección de seguridad del sistema, donde podrá acceder a funciones y configuraciones relacionadas con la seguridad de la ubicación o el entorno.
 
+Ventilación:
+El segundo botón está etiquetado como "Ventilación" y se identifica con un ícono relacionado con la ventilación o el aire.
+Al hacer clic en este botón, el usuario será redirigido a la sección de ventilación del sistema, donde podrá controlar y ajustar la configuración de la ventilación en la ubicación específica.
+
+### Security (Mobile App)
+![Seguridad (Mobile App)](./img/mobileApp2.png)
+En la parte superior de la pantalla, hay un encabezado que indica claramente que se encuentra en la sección de seguridad.
+Botones dentro del sistema de ventilacion:
+Activar el Sistema:
+Este botón está ubicado abajo de la pantalla y se distingue por un color azul.
+Al hacer clic en este botón, activara la funcion del sistema la cual es cerrar la puerta.
+
+Desactivar el Sistema:
+Este botón se encuentra abajo del botón "Activar el Sistema" y se distingue por el color blanco.
+Al hacer clic en este botón, desactivara la funcion del sistema la cual es abrir la puerta.
+Regresar al Menú Principal:
+
+En la parte inferior de la pantalla, hay un botón claramente etiquetado como "Regresar".
+Al hacer clic en este botón, el usuario volverá a la pantalla principal del sistema.
+
+### Ventilacion (Mobile App)
+![Ventilacion (Mobile App)](./img/mobileApp3.png)
+En la parte superior de la pantalla, hay un encabezado que indica claramente que se encuentra en la sección de ventilacion.
+Botones dentro del sistema de ventilacion:
+Activar el Sistema:
+Este botón está ubicado abajo de la pantalla y se distingue por un color azul.
+Al hacer clic en este botón, activara la funcion del sistema la cual es activar la ventilacion.
+
+Desactivar el Sistema:
+Este botón se encuentra abajo del botón "Activar el Sistema" y se distingue por el color blanco.
+Al hacer clic en este botón, desactivara la funcion del sistema la cual es desactivar la ventilacion.
+Regresar al Menú Principal:
+
+En la parte inferior de la pantalla, hay un botón claramente etiquetado como "Regresar".
+Al hacer clic en este botón, el usuario volverá a la pantalla principal del sistema.
 ___
 
 ## Smart Connected design Framework
