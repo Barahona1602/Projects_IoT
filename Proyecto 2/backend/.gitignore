@@ -1,0 +1,6 @@
+dist/
+node_modules/
+docker/data/
+
+# Variables de entorno
+src/.env
