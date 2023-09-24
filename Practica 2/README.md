@@ -19,6 +19,175 @@ En esta ocasión de desarrolló una aplicación móvil y también se implemento 
 ___
 
 
+## Código 
+
+### Sensores
+
+- DHT11: Para este sensor se usó el siguiente código
+
+    #define DHTTYPE DHT11
+    DHT dht(DHTPIN, DHTTYPE);
+    int sensorVal; // Analog value from the LDR sensor
+    int lux; // Lux value
+
+    setup(){
+
+        dht.begin();
+    }
+
+    loop(){
+
+        float humidity = dht.readHumidity();
+        float temperature = dht.readTemperature();
+        lux = sensorRawToPhys(sensorVal);
+
+
+    }
+
+    int sensorRawToPhys(int raw) {
+
+  // Conversion rule
+  float Vout = float(raw) * (VIN / float(1023)); // Conversion analog to voltage
+  float RLDR = (R * (VIN - Vout)) / Vout; // Conversion voltage to resistance
+  int phys = 500 / (RLDR / 1000); // Conversion resitance to lumen
+  return phys;
+
+}
+- MQ135: Para este sensor se usó lo siguiente:
+
+    #define MQ135PIN A1      // Pin del sensor MQ135
+
+    setup(){
+
+    }
+
+    loop(){
+
+      int airQuality = analogRead(MQ135PIN);
+    }
+
+- LDR: Para este sensor se usó lo siguiente:
+
+    const int sensorPin = A0; // Pin connected to LDR sensor
+    
+    setup(){
+
+    }
+
+    loop(){
+
+          sensorVal = analogRead(sensorPin);
+    }
+
+- Ultrasonico: Para este sensor se usó lo siguiente:
+
+const int TRIGGER_PIN = 5; 
+
+const int ECHO_PIN = 6;   
+
+setup(){
+
+    pinMode(TRIGGER_PIN, OUTPUT);
+    pinMode(ECHO_PIN, INPUT);
+
+}
+
+loop(){
+
+      float distance = getDistance();
+}
+
+float getDistance() {
+
+  digitalWrite(TRIGGER_PIN, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIGGER_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIGGER_PIN, LOW);
+
+  unsigned long duration = pulseIn(ECHO_PIN, HIGH);
+  float distance = duration * 0.034 / 2; // Calculate distance in cm
+
+  return distance;
+
+}
+
+Ventilador:
+
+const int enA = 9;
+const int in1 = 8;  
+const int in2 = 7;   
+
+void setup() {
+ 
+  pinMode(enA, OUTPUT);
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+
+
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+
+  
+  setMotorSpeed(1);  // Velocidad 1 por defecto
+}
+
+void loop() {
+ 
+  
+  
+  int velocidadDeseada = 2; seleccionar la velocidad
+  if (velocidadDeseada == 1) {
+    setMotorSpeed(1);  // Velocidad 1
+  } else if (velocidadDeseada == 2) {
+    setMotorSpeed(2);  // Velocidad 2
+  }
+  
+
+}
+
+
+Activador: 
+
+#include <Servo.h>
+
+Servo myservo;  
+
+const int servoPin = 9;  
+int posicion = 0;        
+
+void setup() {
+  myservo.attach(servoPin);  
+}
+
+void loop() {
+
+  
+  /
+  int opcion = 1;  
+  if (opcion == 1) {
+    moveServoToPosition(0);  
+  } else if (opcion == 2) {
+    moveServoToPosition(90); 
+  }
+  
+ 
+}
+
+
+void moveServoToPosition(int angle) {
+  myservo.write(angle); deseada
+  delay(500);      
+}
+
+
+
+
+
+
+
+
+
 ## Bocetos del prototipo
 
 - ### Diseño del circuito electrónico 📐
@@ -189,5 +358,9 @@ Los editores generan y envían datos que pueden ser consumidos por otros disposi
 Un subscriber es un dispositivo o aplicación que se suscribe a uno o varios temas en un broker MQTT para recibir mensajes publicados en esos temas.
 
 Los suscriptores indican al broker a qué temas están interesados en escuchar y, cuando un mensaje se publica en uno de esos temas, el broker lo entrega al suscriptor correspondiente.
+
+## Topic:
+
+Es una cadena de texto que se utiliza para identificar un canal o tema específico al que los dispositivos pueden suscribirse o publicar mensajes. Los temas son una parte fundamental del sistema de mensajería MQTT y se utilizan para enrutar los mensajes entre los clientes que se comunican a través del protocolo MQTT.
 
 ___
