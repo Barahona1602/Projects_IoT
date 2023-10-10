@@ -13,6 +13,7 @@ broker.on("clientConnected", (client) => {
     console.log(`MQTT client connected:${client.id}`)
 })
 
-broker.on("clientDisconnected", function onClientDisconnected(client) {
-    console.log(`MQTT client disconnected:${client.id}`)
+
+broker.on("published", (packet) => {
+    console.log(packet.payload.toString())  
 })

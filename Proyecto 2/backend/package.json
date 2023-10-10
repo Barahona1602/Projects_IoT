@@ -12,7 +12,8 @@
   "dependencies": {
     "jsonschema": "^1.2.6",
     "mosca": "^2.8.3",
-    "mqtt": "^5.1.0",
+    "mqtt": "^5.1.1",
+    "mysql": "^2.18.1",
     "serialport": "^12.0.0"
   }
 }

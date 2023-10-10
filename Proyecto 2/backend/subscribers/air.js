@@ -1,5 +1,5 @@
 const mqtt = require('mqtt');
-const topic = "temp";
+const topic = "air";
 const mysql = require("mysql");
 
 
@@ -34,7 +34,7 @@ sub.on("connect", () => {
 sub.on("message", (topic, message) => {
     console.log(`topic:${topic} message:${message}`);
 
-    db.query(`INSERT INTO temperatura (value) VALUES (${message})`, (err, result) => {
+    db.query(`INSERT INTO aire (value) VALUES (${message})`, (err, result) => {
         if (err) {
             console.log("error en la insercion de datos", err);
         } else {
