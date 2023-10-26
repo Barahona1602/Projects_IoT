@@ -1,5 +1,5 @@
 const mqtt = require('mqtt');
-const topic = "temp";
+const topic = "ARQUI2_G8_temp";
 const mysql = require("mysql");
 
 

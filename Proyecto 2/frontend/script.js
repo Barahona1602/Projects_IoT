@@ -10,7 +10,7 @@ function changeTitle() {
 setInterval(changeTitle, 2000); // Cambiar el título cada 2 segundos
 
 
-const topic = "grafana";
+const topic = "ARQUI2_G8_NOTIFICACION";
 const clientId = "web-client"; // Identificador de cliente para MQTT
 const sub = new Paho.MQTT.Client("localhost", 9000, clientId);
 
@@ -42,3 +42,7 @@ function onMessageArrived(message) {
 
 // Conectar al MQTT en el inicio
 sub.connect({ onSuccess: onConnect });
+
+setInterval(function() {
+    sub.subscribe(topic);
+}, 1000); // Reconectar después de 1 segundo

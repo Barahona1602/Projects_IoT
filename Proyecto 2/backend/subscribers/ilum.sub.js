@@ -1,6 +1,6 @@
 const mqtt = require('mqtt');
 const { SerialPort } = require('serialport');
-const topic = "ARQUI2_G8_seguridad";
+const topic = "ARQUI2_G8_iluminacion";
 
 const port = new SerialPort({
     path: 'COM3',
@@ -14,6 +14,7 @@ sub.on("connect", () => {
 })
 
 sub.on("message", (topic, message) => {
+    
     console.log(`topic:${topic} message:${message}`);
     port.write(message, (err) => {
         if (err) {
